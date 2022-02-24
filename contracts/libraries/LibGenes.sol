@@ -1,10 +1,10 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-import {IGeneScience} from "./IGeneScience.sol";
+import {IGeneScience} from "../interfaces/IGeneScience.sol";
 
 library LibGenes {
-    IGeneScience constant GENE_SCIENCE =
+    IGeneScience public constant GENE_SCIENCE =
         IGeneScience(0x6b696520997d3eaEE602D348F380cA1A0F1252d5);
 
     enum Profession {
@@ -32,8 +32,20 @@ library LibGenes {
         STATSUNKNOWN2
     }
 
-    function isMiner(uint256 statGenes) internal pure returns (bool) {
+    function hasProfession(uint256 statGenes, Profession prof)
+        internal
+        pure
+        returns (bool)
+    {
         uint8[] memory genes = GENE_SCIENCE.decode(statGenes);
-        return genes[2] == 0;
+        return genes[2] == uint8(prof);
+    }
+
+    function isMiner(uint256 statGenes) internal pure returns (bool) {
+        return hasProfession(statGenes, Profession.MINING);
+    }
+
+    function isGardener(uint256 statGenes) internal pure returns (bool) {
+        return hasProfession(statGenes, Profession.GARDENING);
     }
 }

@@ -1,8 +1,6 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-// 0x6b696520997d3eaee602d348f380ca1a0f1252d5
-
 interface IGeneScience {
     function mixGenes(
         uint256 _genes1,

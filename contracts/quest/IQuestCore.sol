@@ -1,18 +1,15 @@
-// SPDX-License-Identifier: Unlicense
-// solhint-disable func-name-mixedcase
+// SPDX-License-Identifier: MIT
 
 pragma solidity ^0.8.0;
 
 import "./IQuestTypes.sol";
 import "../IHeroTypes.sol";
 
-/* contract address: 0x5100bd31b822371108a0f63dcfb6594b9919eaf4
- * fishing address: 0xE259e8386d38467f0E7fFEdB69c3c9C935dfaeFc
- * foraging address: 0x3132c76acF2217646fB8391918D28a16bD8A8Ef4
- */
 interface IQuestCore {
+    //solhint-disable-next-line func-name-mixedcase
     function DEFAULT_ADMIN_ROLE() external view returns (bytes32);
 
+    //solhint-disable-next-line func-name-mixedcase
     function MODERATOR_ROLE() external view returns (bytes32);
 
     function addQuestType(address _questAddress) external;

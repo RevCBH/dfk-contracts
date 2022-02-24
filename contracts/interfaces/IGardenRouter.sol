@@ -4,6 +4,7 @@ pragma solidity ^0.8.0;
 interface IGardenRouter {
     function factory() external pure returns (address);
 
+    //solhint-disable-next-line func-name-mixedcase
     function WETH() external pure returns (address);
 
     function addLiquidity(

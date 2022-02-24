@@ -5,9 +5,9 @@ import {IGardenFactory} from "../interfaces/IGardenFactory.sol";
 import {IGardenRouter} from "../interfaces/IGardenRouter.sol";
 
 library LibGarden {
-    IGardenFactory constant MAINNET_FACTORY =
+    IGardenFactory public constant MAINNET_FACTORY =
         IGardenFactory(0x9014B937069918bd319f80e8B3BB4A2cf6FAA5F7);
-    IGardenRouter constant MAINNET_ROUTER =
+    IGardenRouter public constant MAINNET_ROUTER =
         IGardenRouter(0x24ad62502d1C652Cc7684081169D04896aC20f30);
 
     enum Pool {

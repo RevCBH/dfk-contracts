@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import {IGardenPair} from "./IGardenPair.sol";
+
 interface IGardenFactory {
     event PairCreated(
         address indexed token0,
@@ -18,7 +20,7 @@ interface IGardenFactory {
         view
         returns (address pair);
 
-    function allPairs(uint256) external view returns (address pair);
+    function allPairs(uint256) external view returns (IGardenPair pair);
 
     function allPairsLength() external view returns (uint256);
 

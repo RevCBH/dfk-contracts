@@ -2,7 +2,7 @@
 //solhint-disable func-name-mixedcase
 pragma solidity ^0.8.0;
 
-interface GeneratedInterface {
+interface IMasterGardener {
     function FINISH_BONUS_AT_BLOCK() external view returns (uint256);
 
     function HALVING_AT_BLOCK(uint256) external view returns (uint256);

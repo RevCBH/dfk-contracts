@@ -126,6 +126,13 @@ interface IQuestCore {
         uint8 _attempts
     ) external;
 
+    function startQuest(
+        uint256[] calldata _heroIds,
+        address _questAddress,
+        uint8 _attempts,
+        uint8 _questKind
+    ) external;
+
     function startQuestWithData(
         uint256[] calldata _heroIds,
         address _questAddress,

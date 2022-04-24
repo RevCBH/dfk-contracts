@@ -1,7 +1,7 @@
 //SPDX-License-Identifier: Unlicense
 pragma solidity ^0.8.0;
 
-struct Quest {
+struct QuestV1 {
   uint256 id;
   address /*IQuest*/ quest;
   uint256[] heros;
@@ -13,7 +13,20 @@ struct Quest {
   uint8 status;
 }
 
-struct RewardItem {
+struct QuestV2 {
+  uint256 id;
+  address questAddress;
+  uint8 level;
+  uint256[] heroes;
+  address player;
+  uint256 startBlock;
+  uint256 startAtTime;
+  uint256 completeAtTime;
+  uint8 attempts;
+  uint8 /*QuestStatus*/ status;
+}
+
+struct RewardItemV1 {
   address /*IInventoryItem*/ item;
   int64 expBonus;
   int64 skillUpChance;
@@ -27,7 +40,7 @@ struct RewardItem {
 }
 
 struct QuestData {
-    uint256 poolId;
+    uint256 _uint1; // poolId
     uint256 _uint2; // ??? always 0
     uint256 _uint3; // ??? always 0
     uint256 _uint4; // ??? always 0
@@ -41,7 +54,7 @@ struct QuestData {
     address _address4; // ??? always 0x
 }
 
-struct QuestType {
+struct QuestTypeV1 {
   uint256 id;
   address /*IQuest*/ quest;
   uint8 status;

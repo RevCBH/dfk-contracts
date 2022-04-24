@@ -5,7 +5,7 @@ pragma solidity ^0.8.0;
 import "./IQuestTypes.sol";
 import "../IHeroTypes.sol";
 
-interface IQuestCore {
+interface IQuestCoreV1 {
     //solhint-disable-next-line func-name-mixedcase
     function DEFAULT_ADMIN_ROLE() external view returns (bytes32);
 
@@ -31,7 +31,7 @@ interface IQuestCore {
     function getActiveQuests(address _address)
         external
         view
-        returns (Quest[] calldata);
+        returns (QuestV1[] calldata);
 
     function getCurrentStamina(uint256 _heroId) external view returns (uint256);
 
@@ -46,9 +46,9 @@ interface IQuestCore {
     function getHeroQuest(uint256 _heroId)
         external
         view
-        returns (Quest calldata);
+        returns (QuestV1 calldata);
 
-    function getQuest(uint256 _id) external view returns (Quest calldata);
+    function getQuest(uint256 _id) external view returns (QuestV1 calldata);
 
     function getQuestData(uint256 _questId)
         external
@@ -58,7 +58,7 @@ interface IQuestCore {
     function getQuestType(uint256 _id)
         external
         view
-        returns (QuestType calldata);
+        returns (QuestTypeV1 calldata);
 
     function getRoleAdmin(bytes32 role) external view returns (bytes32);
 
@@ -75,21 +75,21 @@ interface IQuestCore {
         external;
 
     function logReward(
-        Quest calldata _quest,
+        QuestV1 calldata _quest,
         uint256 _heroId,
-        RewardItem calldata _reward,
+        RewardItemV1 calldata _reward,
         uint256 _quantity
     ) external;
 
     function logSkillUp(
-        Quest calldata _quest,
+        QuestV1 calldata _quest,
         uint256 _heroId,
         uint8 _profession,
         uint16 _skillUp
     ) external;
 
     function logXp(
-        Quest calldata _quest,
+        QuestV1 calldata _quest,
         uint256 _heroId,
         uint64 _xpEarned
     ) external;
@@ -124,13 +124,6 @@ interface IQuestCore {
         uint256[] calldata _heroIds,
         address _questAddress,
         uint8 _attempts
-    ) external;
-
-    function startQuest(
-        uint256[] calldata _heroIds,
-        address _questAddress,
-        uint8 _attempts,
-        uint8 _questKind
     ) external;
 
     function startQuestWithData(

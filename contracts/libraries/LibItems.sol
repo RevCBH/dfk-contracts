@@ -1,6 +1,8 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
+import {IERC1155} from "../interfaces/index.sol";
+
 library LibItems {
     // Fish
     address public constant BLOATER =
@@ -39,4 +41,8 @@ library LibItems {
         0xAC5c49Ff7E813dE1947DC74bbb1720c353079ac9;
     address public constant SWIFTTHISTLE =
         0xCdfFe898E687E941b124dfB7d24983266492eF1d;
+
+    // Story pages
+    IERC1155 public constant DFKETRNLSTY =
+        IERC1155(0x909EF175d58d0e17d3Ceb005EeCF24C1E5C6F390);
 }
